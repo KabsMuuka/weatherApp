@@ -27,7 +27,7 @@ export default function Footer() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          minHeight: "100vh",
+          minHeight: "55vh",
         }}
       >
         <CssBaseline />
@@ -35,7 +35,7 @@ export default function Footer() {
         <Box
           component="footer"
           sx={{
-            py: 3,
+            py: 2,
             px: 2,
             mt: "auto",
             backgroundColor: (theme) =>
@@ -45,7 +45,7 @@ export default function Footer() {
           }}
         >
           <Container maxWidth="sm">
-            <Typography variant="body1">weather app.</Typography>
+            <Typography variant="body1">weather check.</Typography>
             <Copyright />
           </Container>
         </Box>

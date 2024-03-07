@@ -13,6 +13,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import Container from "@mui/material/Container";
+import { CoPresent } from "@mui/icons-material";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
@@ -42,28 +43,43 @@ export default function Weather() {
     setQuery(e.target.value);
   }
   async function handleClick() {
-    let user = await fetchWeather(query);
-    setUser(user);
+    try {
+      let user = await fetchWeather(query);
+      setUser(user);
+    } catch (error) {
+      console.log({ message: "error fetching for an api", error });
+    }
   }
+
+  //automatic send details when a user presses, Enter.
+  // useEffect(() => {
+  //   const handlePress = async (e) => {
+  //     if (e.key === "Enter") {
+  //       await handleClick();
+  //     }
+  //   };
+  //   document
+  //     .getElementById("input-box")
+  //     .addEventListener("keypress", handlePress);
+  // }, []); //Empty dependency array ensures this effect only runs once
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Typography align="center">
-        <div>
-          <input
-            value={query}
-            onChange={handleChange}
-            type="text"
-            placeholder="search location"
-          />
-          <button
-            onClick={handleClick}
-            variant="outlined"
-            sx={{ my: 1, mx: 1.5 }}
-          >
-            search
-          </button>
-        </div>
+      <Typography align="center" padding={5}>
+        <input
+          value={query}
+          onChange={handleChange}
+          type="text"
+          placeholder="search location"
+          id="input-box"
+        />
+        <button
+          onClick={handleClick}
+          variant="outlined"
+          sx={{ my: 1, mx: 1.5 }}
+        >
+          search
+        </button>
       </Typography>
 
       {/* ******************************** */}
@@ -88,7 +104,7 @@ export default function Weather() {
           color="text.primary"
           gutterBottom
         >
-          Check Weather
+          weather check
         </Typography>
         <Typography
           variant="h5"

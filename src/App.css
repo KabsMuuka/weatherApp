@@ -1,0 +1,27 @@
+input {
+  padding: 12px;
+  border-radius: 4px;
+  border-style: solid;
+  /* box-sizing: border-box; */
+  transition: 2s ease-in-out 0s;
+  border-color: 3s ease-in-out 0s;
+  font-size: medium;
+}
+input:hover {
+  background-color: rgb(220, 226, 249);
+}
+input:focus {
+  background-color: rgb(230, 230, 230);
+  border-color: rgb(14, 79, 164);
+}
+
+button {
+  margin-left: 3px;
+  padding: 13px;
+  border-radius: 4px;
+  transition: 2s;
+}
+button:hover {
+  transition: 2s;
+  background-color: rgb(164, 129, 199);
+}
